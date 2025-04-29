@@ -159,6 +159,12 @@ vim.opt.scrolloff = 10
 vim.opt.relativenumber = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.opt.tabstop = 2 -- Tamanho visual do tab
+vim.opt.shiftwidth = 2 -- Espaço usado na indentação
+vim.opt.softtabstop = 2 -- Quantidade de espaços quando aperta tab
+vim.opt.expandtab = true -- Usa espaços em vez de tab real
+vim.opt.smartindent = true -- Indenta automaticamente em blocos
+vim.opt.autoindent = true -- Repete a indentação da linha anterior
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -232,7 +238,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -664,7 +670,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -762,7 +768,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
@@ -988,7 +994,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
